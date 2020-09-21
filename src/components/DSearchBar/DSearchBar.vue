@@ -64,13 +64,15 @@ export default defineComponent({
 
     watch(
       () => props.cursor,
-      () => {
-        refetch({
+      async () => {
+        loading.value = true;
+        await refetch({
           type: 'USER',
           query: inputValue.value,
           first: 100,
           after: props.cursor as any
         });
+        loading.value = false;
       }
     );
 
