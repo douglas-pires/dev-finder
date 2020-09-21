@@ -1,8 +1,9 @@
 <template>
-  <div class="w-3/12 flex flex-col justify-center items-center">
+  <div class="w-4/12 flex flex-col justify-center items-center">
     <DInput
       placeholder="Type the technology"
       v-model="inputValue"
+      class="w-full"
       @keyup.enter="search"
       autofocus
     />

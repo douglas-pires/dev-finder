@@ -1,5 +1,25 @@
 <template>
   <div class="flex flex-col items-center justify-center min-h-screen">
+    <transition name="fade">
+      <div
+        v-if="!users.length"
+        class="absolute text-left"
+        style="top: 20px; right: 20px"
+      >
+        <p class="text-gray-800 text-lg font-bold">Instructions:</p>
+        <ul>
+          <li class="text-gray-600">
+            1. Type for the technology: React, Vuejs
+          </li>
+          <li class="text-gray-600">
+            2. Press enter or click on search button
+          </li>
+          <li class="text-gray-600">
+            3. Check for available devs and their contact info! 👍
+          </li>
+        </ul>
+      </div>
+    </transition>
     <DSearchBar
       @incoming-result="setResults"
       :class="{ 'min-h-full': !users.length, 'h-64': users.length }"
