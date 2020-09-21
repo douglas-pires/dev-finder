@@ -9,10 +9,10 @@
         <p class="text-gray-800 text-lg font-bold">Instructions:</p>
         <ul>
           <li class="text-gray-600">
-            1. Type for the technology: React, Vuejs
+            1. Input technology (e.g: React, Vuejs, etc.)
           </li>
           <li class="text-gray-600">
-            2. Press enter or click on search button
+            2. Press enter or click the search button
           </li>
           <li class="text-gray-600">
             3. Check for available devs and their contact info! 👍
