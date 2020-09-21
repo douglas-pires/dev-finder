@@ -60,6 +60,7 @@ export default defineComponent({
 
     onResult(res => {
       emit('incoming-result', res);
+      enabled.value = false;
     });
 
     watch(
