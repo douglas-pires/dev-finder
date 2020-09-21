@@ -1,6 +1,6 @@
 # dev-finder
 
-### Warning: You will need to create a Github Access Token to run this application
+### Warning ⚠: You will need to create a Github Access Token to run this application
 
 After create the token, create a `.env` file and add it over `VUE_APP_GITHUB_ACCESS_TOKEN` variable.
 
