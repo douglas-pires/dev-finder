@@ -71,6 +71,7 @@ export default defineComponent({
     };
 
     const previous = () => {
+      afterCursor.value = cursor.value;
       cursor.value = previousCursor.value;
     };
 
@@ -81,7 +82,7 @@ export default defineComponent({
         }
       } = result;
       total.value = userCount;
-      afterCursor.value = edges.pop().cursor;
+      afterCursor.value = edges[edges.length - 1].cursor;
       users.value = edges
         .filter(
           (edge: { node: { __typename: string } }) =>

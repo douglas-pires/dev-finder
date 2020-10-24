@@ -36,26 +36,23 @@ export default defineComponent({
   setup(props, { emit }) {
     const enabled = ref(false);
     const inputValue = ref('');
-    const { loading, refetch, onResult } = useQuery(
+    const { loading, refetch, onResult, variables } = useQuery(
       searchQuery,
       () => ({
         type: 'USER',
         query: inputValue.value,
         first: 100,
-        after: null
+        after: null as null | string
       }),
       () => ({ enabled: enabled.value, fetchPolicy: 'no-cache' })
     );
 
-    const search = () => {
+    const search = async () => {
       enabled.value = true;
 
-      refetch({
-        type: 'USER',
-        query: inputValue.value,
-        first: 100,
-        after: null
-      });
+      variables.value.query = inputValue.value;
+
+      await refetch();
     };
 
     onResult(res => {
@@ -67,13 +64,9 @@ export default defineComponent({
       () => props.cursor,
       async () => {
         loading.value = true;
-        await refetch({
-          type: 'USER',
-          query: inputValue.value,
-          first: 100,
-          after: props.cursor as any
-        });
-        loading.value = false;
+        enabled.value = true;
+        variables.value.after = props.cursor;
+        await refetch();
       }
     );
 
